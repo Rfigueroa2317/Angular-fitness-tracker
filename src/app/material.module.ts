@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,10 +11,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule } from "@angular/material/select";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatDialogModule, MatDialogActions, MAT_DIALOG_DATA  } from "@angular/material/dialog";
-import { MatTableModule } from "@angular/material/table"
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import {
+  MatDialogModule,
+  MatDialogActions,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -34,7 +41,9 @@ import { MatTableModule } from "@angular/material/table"
     MatSelectModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   exports: [
     MatButtonModule,
@@ -55,6 +64,8 @@ import { MatTableModule } from "@angular/material/table"
     MatDialogModule,
     MatDialogActions,
     MatTableModule,
-  ]
+    MatSortModule,
+    MatPaginatorModule,
+  ],
 })
 export class MaterialModule {}

@@ -1,4 +1,5 @@
 import { Subject } from 'rxjs';
+// import 'rxjs/add/operator/map';
 
 import { Exercise } from './exercise.model';
 

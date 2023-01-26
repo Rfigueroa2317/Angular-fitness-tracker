@@ -17,16 +17,16 @@ export class NewTrainingComponent implements OnInit {
   constructor(private trainingService: TrainingService, private db: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.exercises$ =
+    this.exercises =
       this.db.collection<Exercise>('availableExercises')
         .snapshotChanges()
-        .pipe(
-          map(actions => actions.map(a => {
-            const data = a.payload.doc.data() as Exercise;
-            const id = a.payload.doc.id;
-            return {id, ...data};
-          }))
-        );
+        // .pipe(
+        //   map(actions => actions.map(a => {
+        //     const data = a.payload.doc.data() as Exercise;
+        //     const id = a.payload.doc.id;
+        //     return {id, ...data};
+        //   }))
+        // );
 
   }
 

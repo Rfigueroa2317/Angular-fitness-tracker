@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -35,7 +34,6 @@ import { TrainingModule } from './training/taining.module';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
     TrainingModule

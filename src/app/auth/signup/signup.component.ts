@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit, OnDestroy {
-  maxDate;
+  maxDate: Date;
   private loadingSubs: Subscription
   isLoading = false;
 

@@ -5,7 +5,6 @@ import { AuthData } from "./auth-data.model";
 import { User } from "./user.model";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { TrainingService } from "../training/training.service";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { UIService } from "../shared/ui.service";
 
 @Injectable()

@@ -1,25 +1,33 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, NgForm, Validators, FormGroup } from '@angular/forms';
 import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators'
+import { Store } from '@ngrx/store';
+import * as fromRoot from 'src/app/app.reducer'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  loginForm: UntypedFormGroup;
-  isLoading = false;
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  isLoading$ = new Observable<boolean>();
   private loadingSubs: Subscription;
 
-  constructor(private authService: AuthService, private uiService: UIService) { }
+  constructor(
+    private authService: AuthService,
+    private uiService: UIService, 
+    private store: Store<fromRoot.State>) { }
 
   ngOnInit(): void {
-    this.loadingSubs = this.uiService.loadingStateChanged.subscribe(isLoading => {
-      this.isLoading = isLoading;
-    })
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
+    // this.store.subscribe(data => console.log(data));
+    // this.loadingSubs = this.uiService.loadingStateChanged.subscribe(isLoading => {
+    //   this.isLoading = isLoading;
+    // })
     this.loginForm = new UntypedFormGroup({
       email: new UntypedFormControl('', {
         validators: [Validators.required, Validators.email]
@@ -39,9 +47,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    if (this.loadingSubs) {
-      this.loadingSubs.unsubscribe();
-    }
-  }
+  // ngOnDestroy(): void {
+  //   if (this.loadingSubs) {
+  //     this.loadingSubs.unsubscribe();
+  //   }
+  // }
 }

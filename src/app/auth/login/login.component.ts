@@ -14,6 +14,7 @@ import * as fromRoot from 'src/app/app.reducer'
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading$ = new Observable<boolean>();
+  loadingSubs: any;
 
   constructor(
     private authService: AuthService,
@@ -21,10 +22,10 @@ export class LoginComponent implements OnInit {
     private store: Store<fromRoot.State>) { }
 
   ngOnInit(): void {
-    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
+    // this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     // this.store.subscribe(data => console.log(data));
     // this.loadingSubs = this.uiService.loadingStateChanged.subscribe(isLoading => {
-    //   this.isLoading = isLoading;
+    //   this.isLoading$ = isLoading;
     // })
     this.loginForm = new UntypedFormGroup({
       email: new UntypedFormControl('', {
@@ -44,10 +45,4 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password
     });
   }
-
-  // ngOnDestroy(): void {
-  //   if (this.loadingSubs) {
-  //     this.loadingSubs.unsubscribe();
-  //   }
-  // }
 }

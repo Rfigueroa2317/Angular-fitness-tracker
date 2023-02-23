@@ -3,6 +3,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
 export class UIService {
+    loadingStateChanged: any;
 
     constructor(private snackbar: MatSnackBar) {}
 

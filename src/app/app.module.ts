@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -29,6 +30,7 @@ import { reducers } from './app.reducer';
     SidenavListComponent,
   ],
   imports: [
+    DatePipe,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,

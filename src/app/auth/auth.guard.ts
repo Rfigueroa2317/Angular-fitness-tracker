@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, CanLoad, Route } from "@angular/router";
-import { AuthService } from "./auth.service";
 import * as fromRoot from '../app.reducer';
 
 import { Store } from "@ngrx/store";
